@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct cel{
+struct Cel{
     int conteudo;
-    struct cel *seg;
+    struct Cel *seg;
 };
-typedef struct cel celula;
+typedef struct Cel celula;
 
 celula c;
 celula *p;
@@ -35,4 +35,20 @@ void insere (int y, celula *p){
     nova->conteudo = y;
     nova->seg = p->seg;
     p->seg = nova;
+}
+
+main(){
+    
+    celula c, *lst;
+    c.seg = NULL;
+    lst = &c;
+    lst = malloc(sizeof(celula));
+    lst->seg = NULL;
+    
+    insere(5);
+    insere(6);
+    Busca(5,lst);
+    imprimir(lst);
+    remove(6);
+    
 }
