@@ -45,10 +45,10 @@ main(){
     lst = malloc(sizeof(celula));
     lst->seg = NULL;
     
-    insere(5);
-    insere(6);
+    insere(5,lst);
+    insere(6,lst);
     Busca(5,lst);
     imprimir(lst);
-    remove(6);
+    remove(lst);
     
 }
