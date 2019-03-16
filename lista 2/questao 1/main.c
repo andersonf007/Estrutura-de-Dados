@@ -37,6 +37,21 @@ void insere (int y, celula *p){
     p->seg = nova;
 }
 
+void BuscaERemove(int x, celula *lst){
+    celula *p, *q;
+    p = lst;
+    q = lst-> seg;
+    
+    while(q != NULL && q->conteudo != x){
+        p = q;
+        q = q->seg;
+    }
+    if(q != NULL){
+        p -> seg = q->seg;
+        free(q);
+    }
+}
+
 main(){
     
     celula c, *lst;
@@ -46,9 +61,9 @@ main(){
     lst->seg = NULL;
     
     insere(5,lst);
-    insere(6,lst);
+    insere(6,lst->seg);
     Busca(5,lst);
     imprimir(lst);
-    remove(lst);
-    
+    remove(lst->seg);
+    BuscaERemove(2,lst);
 }
