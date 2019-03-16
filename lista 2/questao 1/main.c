@@ -52,6 +52,22 @@ void BuscaERemove(int x, celula *lst){
     }
 }
 
+void buscaEInserir (int y, int x, celula *lst){
+    celula *p, *q, *novo;
+    
+    novo = malloc(sizeof(celula));
+    novo ->conteudo = y;
+    p = lst;
+    q = lst -> seg;
+    while( q != NULL && q-> conteudo != x){
+        p = q;
+        q = q ->seg;
+    }
+    novo -> seg = q;
+    p -> seg = novo;
+    
+}
+
 main(){
     
     celula c, *lst;
@@ -66,4 +82,5 @@ main(){
     imprimir(lst);
     remove(lst->seg);
     BuscaERemove(2,lst);
+    buscaEInserir(7,8,lst);
 }
